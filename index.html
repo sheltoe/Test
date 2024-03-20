@@ -35,39 +35,39 @@
  <table>
  
   <tr>
-     <td> Ng </td>
+     <td> HP? </td>
      <td> <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput1"/> </td>
 
-       <td> Pci </td>
-     <td>   <input type="text" style="border:3px solid #F7730E;" value="175" id="testInput2"/> </td>
+       <td> Attack? </td>
+     <td>   <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput2"/> </td>
 
-       <td> H </td>
+       <td> Defense? </td>
      <td>  <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput3"/> </td>
 
-       <td> Wp </td>
+       <td> Special Attack? </td>
      <td>   <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput4"/> </td>
 
-       <td> Ph</td>
-     <td>       <input type="text" style="border:3px solid #F7730E;" value="300" id="testInput5"/>  </td>
+       <!--<td> Fire? </td>
+     <td>       <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput5"/>  </td>
   </tr>
         
        
   <tr>
-     <td> Ox </td>
-     <td>  <input type="text" style="border:3px solid #F7730E;" value="24" id="testInput6"/> </td>
+     <td> Grass? </td>
+     <td>  <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput6"/> </td>
 
-     <td>Ow</td>
-     <td>    <input type="text" style="border:3px solid #F7730E;" value="7" id="testInput7"/> </td>
+     <td>Starter?</td>
+     <td>    <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput7"/> </td>
 
-     <td> Hbt</td>
-     <td>     <input type="text" style="border:3px solid #F7730E;" value="1459" id="testInput8"/> </td>
+     <td> Legendary?</td>
+     <td>     <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput8"/> </td>
 
-     <td> Wm</td>
-     <td>  <input type="text" style="border:3px solid #F7730E;" value="12" id="testInput9"/> </td>
+     <td> Mythic?</td>
+     <td>  <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput9"/> </td>
 
-    <td> Wr</td>
-     <td>     <input type="text" style="border:3px solid #F7730E;" value="308750" id="testInput10"/>  </td>
-  </tr> 
+    <td> Wings?</td>
+     <td>     <input type="text" style="border:3px solid #F7730E;" value="0" id="testInput10"/>  </td>
+  </tr>--> 
  
  </table> 
 
@@ -115,19 +115,19 @@
                     ###########################################
 
 
-                    url1 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_ids_train.csv")
+                    url1 = ("https://github.com/sheltoe/KNN-Mini-Project/blob/main/CSVs/PKMN_ids_train.csv")
                     pd_ids_train = pd.read_csv(open_url(url1))
                     pd_ids_train_np = pd_ids_train.to_numpy()
                     pd_ids_train_np          = pd_ids_train_np[1:, 1:]
 
-                    url2 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_conditions_train.csv")
+                    url2 = ("https://github.com/sheltoe/KNN-Mini-Project/blob/main/CSVs/PKMN_conditions_train.csv")
                     pd_conditions_train = pd.read_csv(open_url(url2))
                     pd_conditions_train_np = pd_conditions_train.to_numpy()
                     pd_conditions_train_np   = pd_conditions_train_np[1:, 1:]
 
                     #########################################################################################################
 
-                    url3 = ("https://rcalix1.github.io/ProbabilityDensityFunctionsFromNeuralNets/experiments/2023/july2023/GANs/PyScriptExamples/example3/PD_imgs_np_train.csv")
+                    url3 = ("https://github.com/sheltoe/KNN-Mini-Project/blob/main/CSVs/PKMN_imgs_np_train.csv")
                     pd_imgs_np_train = pd.read_csv(open_url(url3))
                     pd_imgs_np_train_np = pd_imgs_np_train.to_numpy()
                     pd_imgs_np_train_np      = pd_imgs_np_train_np[1:, 1:]
@@ -146,7 +146,7 @@
                         distances = [ euclidean_distance(test_x, x )  for x in pd_conditions_train_np    ]
                         k = 3
                         k_neighbor_indices = np.argsort(distances)[:k]
-                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((140, 39))  for i in k_neighbor_indices  ]
+                        selected_imgs_to_avg = [ pd_imgs_np_train_np[i].reshape((56, 56))  for i in k_neighbor_indices  ]
                     
                         avg_gen_img = np.mean( np.array(selected_imgs_to_avg), axis=0 )
                         avg_gen_img = avg_gen_img.astype(int)
@@ -159,14 +159,14 @@
                         c2 = float( Element('testInput2').element.value )
                         c3 = float( Element('testInput3').element.value )
                         c4 = float( Element('testInput4').element.value )
-                        c5 = float( Element('testInput5').element.value )
-                        c6 = float( Element('testInput6').element.value )
-                        c7 = float( Element('testInput7').element.value )
-                        c8 = float( Element('testInput8').element.value )
-                        c9 = float( Element('testInput9').element.value )
-                        c10 = float( Element('testInput10').element.value )
+                        #c5 = float( Element('testInput5').element.value )
+                        #c6 = float( Element('testInput6').element.value )
+                        #c7 = float( Element('testInput7').element.value )
+                        #c8 = float( Element('testInput8').element.value )
+                        #c9 = float( Element('testInput9').element.value )
+                        #c10 = float( Element('testInput10').element.value )
 
-                        conditions_list = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
+                        conditions_list = [c1, c2, c3, c4]
                         np_conditions_list = np.array(conditions_list)
                         np_conditions_list = np.expand_dims(np_conditions_list, axis=0)
 
@@ -223,4 +223,3 @@
         
     </body>
 </html>
-
